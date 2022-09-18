@@ -1,6 +1,7 @@
 $validAnswer = $false
 $Folder = '~/AppData/Local/.minecraft/shaderpacks/Super-Duper-Vanilla'
 #$Folder = '~/test' #for debug purposes
+$host.UI.RawUI.BackgroundColor = "Black"
 Clear-Host
 While(-not $validAnswer)
 {
