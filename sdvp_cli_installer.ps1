@@ -1,5 +1,5 @@
 $validAnswer = $false
-$Folder = '~/AppData/Local/.minecraft/shaderpacks/Super-Duper-Vanilla'
+$Folder = '~/AppData/Roaming/.minecraft/shaderpacks/Super-Duper-Vanilla'
 #$Folder = '~/test' #for debug purposes
 $host.UI.RawUI.BackgroundColor = "Black"
 Clear-Host
@@ -23,13 +23,13 @@ While(-not $validAnswer)
             if ($updateStable -eq 1){
                 Write-Host 'Backing up shader configuration file...'
                 # move-tool param here:
-                Remove-Item' $env:APPDATA\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force -Verbose
-                Set-Location -Path '~/AppData/Local/.minecraft/shaderpacks'
+                Remove-Item '~\AppData\Roaming\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force
+                Set-Location -Path '~/AppData/Roaming/.minecraft/shaderpacks'
                 Write-Host
                 Start-Sleep -Seconds 0.25
                 Write-Host 'Starting update from stable channel...' -ForegroundColor Green
-                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/tags/v1.3.0-beta.3.zip" -OutFile ( New-Item -Path "super-duper-vanilla_stable.zip" -Force ) -Verbose
-                Expand-Archive -Path 'super-duper-vanilla_stable.zip' -DestinationPath 'Super-Duper-Vanilla' -Force
+                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/tags/v1.3.0-beta.3.zip" -OutFile ( New-Item -Path "super-duper-vanilla_stable.zip" -Force ) 
+                Expand-Archive -Path 'super-duper-vanilla_stable.zip' -DestinationPath 'Super-Duper-Vanilla' -Force 
                 Remove-Item 'super-duper-vanilla_stable.zip'
                 Write-Host 'Super Duper Vanilla was successfully installed!' -ForegroundColor Green
                 Write-Host 'Installation method: quickInstallStable'
@@ -46,13 +46,13 @@ While(-not $validAnswer)
 
             if ($updateStable -eq 2){
                 Write-Host 'Clearing previous versions of SDVP...'
-                Remove-Item' $env:APPDATA\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force -Verbose
+                Remove-Item '~\AppData\Roaming\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force
                 Write-Host 'shaderpacks/Super-Duper-Vanilla was wiped clean!'
-                Set-Location -Path '~/AppData/Local/.minecraft/shaderpacks'
+                Set-Location -Path '~/AppData/Roaming/.minecraft/shaderpacks'
                 Write-Host
                 Start-Sleep -Seconds 0.25
                 Write-Host 'Starting clean installation from stable channel...' -ForegroundColor Green
-                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/tags/v1.3.0-beta.3.zip" -OutFile ( New-Item -Path "super-duper-vanilla_stable.zip" -Force ) -Verbose
+                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/tags/v1.3.0-beta.3.zip" -OutFile ( New-Item -Path "super-duper-vanilla_stable.zip" -Force ) 
                 Expand-Archive -Path 'super-duper-vanilla_stable.zip' -DestinationPath 'Super-Duper-Vanilla' -Force
                 Remove-Item 'super-duper-vanilla_stable.zip'
                 Write-Host 'Super Duper Vanilla was successfully installed!' -ForegroundColor Green
@@ -78,14 +78,15 @@ While(-not $validAnswer)
         } 
         # If there is no previous version of SDVP present, an else statement will trigger instead.
     else {
+    	Write-Host
         Write-Host "It looks like there isn't any existing installations of SDVP on this computer."
-        Write-Host 'Performing quick install, buckle up!'
-        Set-Location -Path '~/AppData/Local/.minecraft/shaderpacks'
+        Write-Host 'Performing quick install, buckle up!' -ForegroundColor Blue
+        Set-Location -Path '~/AppData/Roaming/.minecraft/shaderpacks'
         Write-Host
         Start-Sleep -Seconds 0.25
         Write-Host 'Performing quick installation from stable channel...' -ForegroundColor Green
-        Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/tags/v1.3.0-beta.3.zip" -OutFile ( New-Item -Path "super-duper-vanilla_stable.zip" -Force ) -Verbose
-        Expand-Archive -Path 'super-duper-vanilla_stable.zip' -DestinationPath 'Super-Duper-Vanilla' -Force
+        Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/tags/v1.3.0-beta.3.zip" -OutFile ( New-Item -Path "super-duper-vanilla_stable.zip" -Force ) 
+        Expand-Archive -Path 'super-duper-vanilla_stable.zip' -DestinationPath 'Super-Duper-Vanilla' -Force 
         Remove-Item 'super-duper-vanilla_stable.zip'
         Write-Host 'Super Duper Vanilla was successfully installed!' -ForegroundColor Green
         Write-Host 'Installation method: quickInstallStable'
@@ -113,14 +114,14 @@ While(-not $validAnswer)
             if ($updateDev -eq 1){
                 Write-Host 'Backing up shader configuration file...'
                 # move-tool param here:
-                Remove-Item' $env:APPDATA\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force -Verbose
-                Set-Location -Path '~/AppData/Local/.minecraft/shaderpacks'
+                Remove-Item '~\AppData\Roaming\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force
+                Set-Location -Path '~/AppData/Roaming/.minecraft/shaderpacks'
                 Write-Host
                 Start-Sleep -Seconds 0.25
                 Write-Host 'Starting update from dev channel...' -ForegroundColor Green
                 Write-Host 'NOTE: Might be unstable'
-                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/heads/master.zip" -OutFile ( New-Item -Path "super-duper-vanilla_dev.zip" -Force ) -Verbose
-                Expand-Archive -Path 'super-duper-vanilla_dev.zip' -DestinationPath 'Super-Duper-Vanilla' -Force
+                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/heads/master.zip" -OutFile ( New-Item -Path "super-duper-vanilla_dev.zip" -Force )
+                Expand-Archive -Path 'super-duper-vanilla_dev.zip' -DestinationPath 'Super-Duper-Vanilla' -Force 
                 Remove-Item 'super-duper-vanilla_dev.zip'
                 Write-Host 'Super Duper Vanilla was successfully installed!' -ForegroundColor Green
                 Write-Host 'Installation method: updateDev'
@@ -135,15 +136,15 @@ While(-not $validAnswer)
             # If user decides to clean install using dev:
             if ($updateDev -eq 2){
                 Write-Host 'Clearing previous versions of SDVP...'
-                Remove-Item' $env:APPDATA\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force -Verbose
+                Remove-Item '~\AppData\Roaming\.minecraft\shaderpacks\Super-Duper-Vanilla' -Recurse -Confirm:$false -Force 
                 Write-Host 'shaderpacks/Super-Duper-Vanilla was wiped clean!'
-                Set-Location -Path '~/AppData/Local/.minecraft/shaderpacks'
+                Set-Location -Path '~/AppData/Roaming/.minecraft/shaderpacks'
                 Write-Host
                 Start-Sleep -Seconds 0.25
                 Write-Host 'Starting clean installation from dev channel...' -ForegroundColor Green
                 Write-Host 'NOTE: Might be unstable'
-                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/heads/master.zip" -OutFile ( New-Item -Path "super-duper-vanilla_dev.zip" -Force ) -Verbose
-                Expand-Archive -Path 'super-duper-vanilla_dev.zip' -DestinationPath 'Super-Duper-Vanilla' -Force
+                Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/heads/master.zip" -OutFile ( New-Item -Path "super-duper-vanilla_dev.zip" -Force ) 
+                Expand-Archive -Path 'super-duper-vanilla_dev.zip' -DestinationPath 'Super-Duper-Vanilla' -Force 
                 Remove-Item 'super-duper-vanilla_dev.zip'
                 Write-Host 'Super Duper Vanilla was successfully installed!' -ForegroundColor Green
                 Write-Host 'Installation method: cleanInstallDev'
@@ -168,13 +169,14 @@ While(-not $validAnswer)
         } 
     else {
         # If there is no previous version of SDVP present, an else statement will trigger instead for dev
+	Write-Host
         Write-Host "It looks like there isn't any existing installations of SDVP on this computer."
-        Write-Host 'Performing quick install, buckle up!'
-        Set-Location -Path '~/AppData/Local/.minecraft/shaderpacks'
+        Write-Host 'Performing quick install, buckle up!' -ForegroundColor Blue
+        Set-Location -Path '~/AppData/Roaming/.minecraft/shaderpacks'
         Write-Host
         Start-Sleep -Seconds 0.25
         Write-Host 'Performing quick installation from dev channel...' -ForegroundColor Green
-        Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/heads/master.zip" -OutFile ( New-Item -Path "super-duper-vanilla_dev.zip" -Force ) -Verbose
+        Invoke-WebRequest -uri "https://github.com/Eldeston/Super-Duper-Vanilla/archive/refs/heads/master.zip" -OutFile ( New-Item -Path "super-duper-vanilla_dev.zip" -Force )
         Expand-Archive -Path 'super-duper-vanilla_dev.zip' -DestinationPath 'Super-Duper-Vanilla' -Force
         Remove-Item 'super-duper-vanilla_dev.zip'
         Write-Host 'Super Duper Vanilla was successfully installed!' -ForegroundColor Green
@@ -192,6 +194,8 @@ While(-not $validAnswer)
             Write-Host 'Press any key to exit.'
             $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
         }
-        Default {Write-Host "That's not quite right, maybe give it another shot?"}
+        Default {
+        	Clear-Host
+		Write-Host "That wasn't quite right, maybe give it another shot?"}
     }
 }
