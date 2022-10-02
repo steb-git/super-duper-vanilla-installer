@@ -6,7 +6,7 @@ ___
 # So, what is this for?
 This installer is originally meant for more convenient shader updating (considering you have to download and extract from the `master` branch all over again which is very inconvenient.). This is a sideproject of mine that I have decided to make for SDVP as part of learning PowerShell as a student.
 
-#..any special features?
+# ..any special features?
 It features a selection page front-end using `$PSCore:Read-Host` which guides the user to properly install the shaderpack to its default location.
 -Although some people tend to store their MinecraftJava and Optifine binaries on an another drive which would be implemented on the next revision of the sourcecode.
 
