@@ -23,10 +23,10 @@ This method is by far the most fastest way to use the installer script. Recommen
 > Note: It is not recommended to execute the installer on a terminal session with administrator privileges.
 2. Paste these lines below on the terminal window to launch the installer remotely:
 ```pwsh
-// Paste this first to allow the execution of remote scripts (this only takes effect on the current session, and usually goes back to default after exiting a terminal session.)
+# Paste this first to allow the execution of remote scripts (this only takes effect on the current session, and usually goes back to default after exiting a terminal session.)
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass 
 
-// Paste this line afterwards to start the installer.
+# Paste this line afterwards to start the installer.
 irm https://raw.githubusercontent.com/steb-git/super-duper-vanilla-installer/main/sdvp_cli_installer.ps1 | iex
 ```
 3. Proceed with the installation.
